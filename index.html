@@ -9,7 +9,7 @@
 <!-- Open Graph meta tags for social media preview -->
 <meta property="og:title" content="ZOTX">
 <meta property="og:description" content="I'm ZOTX, a student and PC enthusiast working on exciting new projects. Stay tuned!">
-<meta property="og:image" content="https://zotx0.github.io/ZOTX/logo.png">
+<meta property="og:image" content="https://zotx0.github.io/ZOTX/zlogow.png">
 <meta property="og:url" content="https://zotx.online">
 <meta name="twitter:card" content="summary_large_image">
 <!-- JSON-LD structured data -->
@@ -19,7 +19,7 @@
   "@type": "Person",
   "name": "ZOTX",
   "url": "https://zotx.online",
-  "image": "https://zotx0.github.io/ZOTX/logo.png",
+  "image": "https://zotx0.github.io/ZOTX/zlogow.png",
   "sameAs": [
     "https://www.instagram.com/zotx60/",
     "https://www.youtube.com/@ZOTX",
@@ -37,6 +37,7 @@
         padding: 0;
         height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         font-family: Arial, sans-serif;
@@ -45,14 +46,43 @@
     .content {
         text-align: center;
     }
+    .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+    }
     .social-icons {
         margin-top: 20px;
     }
     .social-icons a {
         display: inline-block;
-        margin-right: 10px;
+        margin: 0 10px;
+        text-align: center;
         font-size: 24px;
         color: #fff;
+        text-decoration: none;
+    }
+    .social-icons a span {
+        display: block;
+        font-size: 14px;
+        margin-top: 5px;
+        text-decoration: none;
+        color: #fff;
+    }
+    .download-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    .download-btn:hover {
+        background-color: #0056b3;
     }
 </style>
 <!-- Google Analytics tracking code -->
@@ -67,17 +97,19 @@
 </head>
 <body>
 <div class="content">
+    <img src="https://zotx0.github.io/ZOTX/zlogow.png" alt="ZOTX Logo" class="logo">
     <h1>Hey, I'm ZOTX</h1>
     <h2>About me</h2>
     <p>I am a PC nerd.</p>
     <h2>What I'm working on</h2>
     <p>Starting soon - an exciting project is on the horizon!</p>
     <div class="social-icons">
-        <a href="https://www.instagram.com/zotx60/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@ZOTX" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://discord.com/users/508428720172957707" target="_blank"><i class="fab fa-discord"></i></a>
-        <a href="https://steamcommunity.com/id/ZOTX/" target="_blank"><i class="fab fa-steam"></i></a>
+        <a href="https://www.instagram.com/zotx60/" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+        <a href="https://www.youtube.com/@ZOTX" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+        <a href="https://discord.com/users/508428720172957707" target="_blank"><i class="fab fa-discord"></i><span>Discord</span></a>
+        <a href="https://steamcommunity.com/id/ZOTX/" target="_blank"><i class="fab fa-steam"></i><span>Steam</span></a>
     </div>
+    <a href="https://bit.ly/3WbAQBR" class="download-btn" target="_blank">DON'T CLICK ME</a>
 </div>
 </body>
 </html>
