@@ -1,0 +1,55 @@
+/* styles.css */
+body {
+    background: linear-gradient(to bottom right, #1c4eb5, #b368df);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+.content {
+    text-align: center;
+    margin-top: -50px; /* Adjust this value to move the content up or down */
+}
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px; /* Reduced margin-bottom to bring text closer */
+}
+.social-icons {
+    margin-top: 20px;
+}
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+.social-icons a span {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.download-btn:hover {
+    background-color: #0056b3;
+}
