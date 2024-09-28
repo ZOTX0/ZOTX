@@ -57,6 +57,7 @@ body {
 @media (max-width: 768px) {
     .logo {
         width: 100px;
+        height: auto;
     }
     .content {
         margin-top: -30px;
