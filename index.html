@@ -11,13 +11,12 @@
     <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
     <link rel="shortcut icon" href="images/favicon.ico">
     
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/ZOTX0/ZOTX/refs/heads/main/images/ME2.jpg">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
@@ -29,6 +28,8 @@
             }
         }
     </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         /* --- 1. COLOR VARIABLES --- */
@@ -41,7 +42,7 @@
             --text-main: #ffffff;
             --text-secondary: #e4e4e7;
             --text-muted: #d4d4d8;          /* Zinc 300 */
-            --text-sub: #a1a1aa;            /* Zinc 400 (For labels) */
+            --text-sub: #a1a1aa;            /* Zinc 400 */
             --text-highlight: #a5b4fc;
             
             --accent-primary: #818cf8;
@@ -66,7 +67,7 @@
             --text-main: #0f172a;
             --text-secondary: #334155;
             --text-muted: #475569;
-            --text-sub: #475569;            /* Darker for visibility */
+            --text-sub: #64748b;            /* Dark Grey for visibility */
             --text-highlight: #4338ca;
             
             --accent-primary: #4f46e5;
@@ -115,6 +116,9 @@
         .text-green-400, .text-green-500 { color: var(--accent-success) !important; }
         .text-yellow-400, .text-yellow-500 { color: var(--accent-secondary) !important; }
         
+        /* FOOTER FIX */
+        .footer-text { color: var(--text-sub) !important; }
+
         /* Icons */
         .text-pink-400 { color: #ec4899 !important; }
         .text-blue-400 { color: #3b82f6 !important; }
@@ -133,15 +137,17 @@
             background-color: var(--btn-bg) !important;
             color: var(--btn-text) !important;
             border: 1px solid var(--box-border);
+            min-height: 44px; /* ACCESSIBILITY: Minimum Touch Target */
         }
         .btn-download:hover { background-color: var(--btn-hover) !important; }
 
         .btn-interactive {
             border: 1px solid var(--box-border);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 52px; /* ACCESSIBILITY: Larger Touch Target */
         }
         .btn-interactive:hover {
-            transform: scale(1.03);
+            transform: scale(1.02);
             background-color: var(--box-bg) !important;
             border-color: var(--accent-primary) !important;
         }
@@ -149,8 +155,8 @@
 </head>
 <body class="font-sans min-h-screen p-4 md:p-12 selection:bg-indigo-500/30">
 
-    <button id="theme-toggle" aria-label="Toggle Theme" class="fixed top-6 right-6 z-50 p-3 rounded-full glass-card hover:scale-110 active:scale-95 transition-all cursor-pointer text-yellow-400">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    <button id="theme-toggle" aria-label="Toggle Theme" class="fixed top-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full glass-card hover:scale-110 active:scale-95 transition-all cursor-pointer text-yellow-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
     </button>
 
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -165,7 +171,7 @@
                 <div class="w-40 h-40 rounded-full border-2 border-white/10 p-1 mb-4 relative group cursor-pointer">
                     <div class="w-full h-full rounded-full bg-zinc-800 overflow-hidden relative">
                         <img src="https://raw.githubusercontent.com/ZOTX0/ZOTX/refs/heads/main/images/ME2.jpg" 
-                             alt="Abdalrhman Saleh" 
+                             alt="Abdalrhman Saleh Profile Picture" 
                              loading="eager" 
                              fetchpriority="high"
                              width="160" height="160"
@@ -188,7 +194,7 @@
             <div class="glass-card rounded-3xl p-5">
                 <h2 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 ml-1">Get in Touch</h2>
                 <div class="flex gap-3">
-                    <a href="mailto:Abdalrhman@zotx.net" 
+                    <a href="mailto:Abdalrhman@zotx.net" aria-label="Send email to Abdalrhman"
                        class="btn-interactive flex-1 bg-white/5 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group cursor-pointer">
                         <div class="p-2 bg-indigo-500/10 rounded-full text-indigo-400 group-hover:text-indigo-500 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
@@ -196,7 +202,7 @@
                         <span class="text-xs font-medium text-zinc-300 group-hover:text-indigo-400 transition-colors">Email Me</span>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/abdalrhman0" target="_blank" 
+                    <a href="https://www.linkedin.com/in/abdalrhman0" target="_blank" aria-label="Visit Abdalrhman's LinkedIn"
                        class="btn-interactive flex-1 bg-white/5 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group cursor-pointer">
                         <div class="p-2 bg-[#0077b5]/10 rounded-full text-[#0077b5] group-hover:text-[#0a66c2] transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
@@ -268,6 +274,7 @@
                     </h2>
                     <a href="https://raw.githubusercontent.com/ZOTX0/ZOTX/main/images/Abdalrhman%20Saleh%20-%20CV%20up%20to%20date.pdf" 
                        target="_blank"
+                       aria-label="Download CV PDF"
                        class="btn-download px-4 py-2 text-xs font-bold rounded-full transition-colors flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
                         Download CV
@@ -373,7 +380,9 @@
         </div>
     </main>
 
-    <footer class="mt-12 text-center pb-8 opacity-90"><p class="text-[11px] text-zinc-250 font-mono uppercase">© 2026 ZOTX</p></footer>
+    <footer class="mt-12 text-center pb-8 opacity-90">
+        <p class="font-mono uppercase footer-text" style="font-size: 11px;">© 2026 ZOTX</p>
+    </footer>
 
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
