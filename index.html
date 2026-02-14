@@ -7,6 +7,32 @@
     <title>Abdalrhman Saleh | Aspiring HR Specialist</title>
     <meta name="description" content="Portfolio of Abdalrhman Saleh, an aspiring HR Specialist and Dual Degree student (MSA & Greenwich).">
     <meta name="author" content="Abdalrhman Saleh">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abdalrhman Saleh",
+      "jobTitle": "Aspiring HR Specialist",
+      "url": "https://zotx.net",
+      "image": "https://raw.githubusercontent.com/ZOTX0/ZOTX/refs/heads/main/images/ME2.jpg",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "MSA University"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Greenwich University"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/abdalrhman0",
+        "https://github.com/ZOTX0"
+      ],
+      "knowsAbout": ["Human Resources", "Digital Sales", "Pega System", "Recruitment"]
+    }
+    </script>
     
     <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -32,52 +58,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. COLOR VARIABLES --- */
+        /* --- 1. ACCESSIBLE COLOR VARIABLES --- */
         :root {
-            /* DARK MODE (Default) */
+            /* === DARK MODE (Default) === */
             --bg-color: #09090b;
             --card-bg: rgba(24, 24, 27, 0.4);
             --card-border: rgba(255, 255, 255, 0.1);
             
+            /* Text Hierarchy */
             --text-main: #ffffff;
-            --text-secondary: #e4e4e7;
-            --text-muted: #d4d4d8;          /* Zinc 300 */
-            --text-sub: #a1a1aa;            /* Zinc 400 */
+            --text-secondary: #e4e4e7;      /* High contrast grey */
+            --text-body: #d4d4d8;           /* Zinc 300 */
+            --text-label: #a1a1aa;          /* Zinc 400 (For small labels) */
+            
+            /* Safe Accents (Readable on Dark) */
+            --safe-green: #4ade80;          /* Green 400 */
+            --safe-yellow: #facc15;         /* Yellow 400 */
+            --safe-indigo: #818cf8;         /* Indigo 400 */
             --text-highlight: #a5b4fc;
             
-            --accent-primary: #818cf8;
-            --accent-secondary: #facc15;
-            --accent-success: #4ade80;
-            
+            /* UI Elements */
             --box-bg: rgba(255, 255, 255, 0.05); 
             --box-border: rgba(255, 255, 255, 0.1);
             --timeline-line: #52525b;
-            
             --btn-bg: #ffffff;
             --btn-text: #000000;
             --btn-hover: #e4e4e7;
         }
 
         .light-mode {
-            /* LIGHT MODE */
+            /* === LIGHT MODE (High Contrast) === */
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --card-border: #cbd5e1;
             
-            --text-main: #0f172a;
-            --text-secondary: #334155;
-            --text-muted: #475569;
-            --text-sub: #64748b;            /* Dark Grey for visibility */
+            /* Text Hierarchy */
+            --text-main: #0f172a;           /* Slate 900 */
+            --text-secondary: #334155;      /* Slate 700 */
+            --text-body: #475569;           /* Slate 600 (Much Darker for readability) */
+            --text-label: #52525b;          /* Zinc 600 (Dark grey for labels) */
+            
+            /* Safe Accents (Readable on White) */
+            --safe-green: #15803d;          /* Green 700 (Dark Green) */
+            --safe-yellow: #b45309;         /* Amber 700 (Dark Orange/Gold) */
+            --safe-indigo: #4338ca;         /* Indigo 700 */
             --text-highlight: #4338ca;
             
-            --accent-primary: #4f46e5;
-            --accent-secondary: #ca8a04;
-            --accent-success: #16a34a;
-            
+            /* UI Elements */
             --box-bg: #f1f5f9;
             --box-border: #cbd5e1;
             --timeline-line: #cbd5e1;
-
             --btn-bg: #0f172a;
             --btn-text: #ffffff;
             --btn-hover: #1e293b;
@@ -105,21 +135,24 @@
             background: var(--timeline-line) !important;
         }
 
-        /* --- 3. TEXT MAPPING --- */
+        /* --- 3. UNIVERSAL TEXT MAPPING (The Fix) --- */
         h1, h2, h3, .text-white, strong { color: var(--text-main) !important; }
-        .text-zinc-200, .text-zinc-300 { color: var(--text-secondary) !important; }
-        .text-zinc-400, .text-zinc-500 { color: var(--text-sub) !important; }
         
+        /* Body Text (Paragraphs) */
+        .text-zinc-200, .text-zinc-300 { color: var(--text-body) !important; }
+        
+        /* Labels (Small uppercase text, dates) */
+        .text-zinc-400, .text-zinc-500 { color: var(--text-label) !important; }
+        
+        /* Highlight Text */
         .text-indigo-200\/70 { color: var(--text-highlight) !important; opacity: 1 !important; }
         
-        .text-indigo-400, .text-indigo-300 { color: var(--accent-primary) !important; }
-        .text-green-400, .text-green-500 { color: var(--accent-success) !important; }
-        .text-yellow-400, .text-yellow-500 { color: var(--accent-secondary) !important; }
+        /* ACCENT COLORS (Fixed for Light Mode) */
+        .text-green-400, .text-green-500 { color: var(--safe-green) !important; }
+        .text-yellow-400, .text-yellow-500 { color: var(--safe-yellow) !important; }
+        .text-indigo-400, .text-indigo-300 { color: var(--safe-indigo) !important; }
         
-        /* FOOTER FIX */
-        .footer-text { color: var(--text-sub) !important; }
-
-        /* Icons */
+        /* Icons (Keep colorful but readable) */
         .text-pink-400 { color: #ec4899 !important; }
         .text-blue-400 { color: #3b82f6 !important; }
         .text-orange-400 { color: #f97316 !important; }
@@ -132,24 +165,24 @@
             border-color: var(--box-border) !important;
         }
 
-        /* --- 5. BUTTON & INTERACTIVITY --- */
+        /* --- 5. BUTTONS --- */
         .btn-download {
             background-color: var(--btn-bg) !important;
             color: var(--btn-text) !important;
             border: 1px solid var(--box-border);
-            min-height: 44px; /* ACCESSIBILITY: Minimum Touch Target */
+            min-height: 44px; 
         }
         .btn-download:hover { background-color: var(--btn-hover) !important; }
 
         .btn-interactive {
             border: 1px solid var(--box-border);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            min-height: 52px; /* ACCESSIBILITY: Larger Touch Target */
+            min-height: 52px;
         }
         .btn-interactive:hover {
             transform: scale(1.02);
             background-color: var(--box-bg) !important;
-            border-color: var(--accent-primary) !important;
+            border-color: var(--safe-indigo) !important;
         }
     </style>
 </head>
@@ -381,7 +414,7 @@
     </main>
 
     <footer class="mt-12 text-center pb-8 opacity-90">
-        <p class="font-mono uppercase footer-text" style="font-size: 11px;">© 2026 ZOTX</p>
+        <p class="font-mono uppercase text-zinc-400" style="font-size: 11px;">© 2026 ZOTX</p>
     </footer>
 
     <script>
