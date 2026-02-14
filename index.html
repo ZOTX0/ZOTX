@@ -3,83 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Abdalrhman Saleh | Aspiring HR Specialist</title>
-
+    <meta name="description" content="Portfolio of Abdalrhman Saleh, an aspiring HR Specialist and Dual Degree student (MSA & Greenwich).">
+    <meta name="author" content="Abdalrhman Saleh">
+    
     <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="shortcut icon" href="images/favicon.ico">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        background: '#09090b', /* Zinc 950 */
-                        glass: 'rgba(24, 24, 27, 0.4)',
-                        border: 'rgba(255, 255, 255, 0.08)',
-                    },
-                    animation: {
-                        'slide-up': 'slideUp 0.8s ease-out forwards',
-                        'pulse-glow': 'pulseGlow 2s infinite',
-                    },
-                    keyframes: {
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.6' },
-                        }
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    animation: { 'pulse-glow': 'pulseGlow 2s infinite' },
+                    keyframes: { pulseGlow: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.6' } } }
                 }
             }
         }
     </script>
 
     <style>
-        html { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #09090b; }
-        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
-        
-        .glass-card {
-            background: rgba(24, 24, 27, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            background: rgba(24, 24, 27, 0.6);
-            transform: translateY(-2px);
-            transition: all 0.3s ease;
+        /* --- 1. COLOR VARIABLES --- */
+        :root {
+            /* DARK MODE (Default) */
+            --bg-color: #09090b;
+            --card-bg: rgba(24, 24, 27, 0.4);
+            --card-border: rgba(255, 255, 255, 0.1);
+            
+            --text-main: #ffffff;
+            --text-secondary: #e4e4e7;
+            --text-muted: #d4d4d8;
+            --text-highlight: #a5b4fc;
+            
+            --accent-primary: #818cf8;
+            --accent-secondary: #facc15;
+            --accent-success: #4ade80;
+            
+            --box-bg: rgba(255, 255, 255, 0.05); 
+            --box-border: rgba(255, 255, 255, 0.1);
+            --timeline-line: #52525b;
+            
+            --btn-bg: #ffffff;
+            --btn-text: #000000;
+            --btn-hover: #e4e4e7;
         }
 
+        .light-mode {
+            /* LIGHT MODE */
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --card-border: #cbd5e1;
+            
+            --text-main: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #475569;
+            --text-highlight: #4338ca;
+            
+            --accent-primary: #4f46e5;
+            --accent-secondary: #ca8a04;
+            --accent-success: #16a34a;
+            
+            --box-bg: #f1f5f9;
+            --box-border: #cbd5e1;
+            --timeline-line: #cbd5e1;
+
+            --btn-bg: #0f172a;
+            --btn-text: #ffffff;
+            --btn-hover: #1e293b;
+        }
+
+        /* --- 2. GLOBAL STYLES --- */
+        body { 
+            background-color: var(--bg-color) !important; 
+            color: var(--text-main) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-card {
+            background: var(--card-bg) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border) !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
         .timeline-line {
-            position: absolute;
-            left: 23px;
-            top: 20px;
-            bottom: 20px;
-            width: 2px;
-            background: #27272a;
+            position: absolute; left: 23px; top: 20px; bottom: 20px; width: 2px;
+            background: var(--timeline-line) !important;
+        }
+
+        /* --- 3. TEXT MAPPING --- */
+        h1, h2, h3, .text-white, strong { color: var(--text-main) !important; }
+        .text-zinc-200, .text-zinc-300 { color: var(--text-secondary) !important; }
+        .text-zinc-400, .text-zinc-500 { color: var(--text-muted) !important; }
+        .text-indigo-200\/70 { color: var(--text-highlight) !important; opacity: 1 !important; }
+        
+        .text-indigo-400, .text-indigo-300 { color: var(--accent-primary) !important; }
+        .text-green-400, .text-green-500 { color: var(--accent-success) !important; }
+        .text-yellow-400, .text-yellow-500 { color: var(--accent-secondary) !important; }
+
+        /* --- 4. BOX FIXES --- */
+        .bg-white\/5, .bg-zinc-800\/50, .bg-zinc-800, .bg-gradient-to-br, .bg-indigo-500\/10, .bg-indigo-500\/5 { 
+            background: var(--box-bg) !important;
+            border-color: var(--box-border) !important;
+        }
+
+        /* --- 5. BUTTON & INTERACTIVITY FIXES --- */
+        .btn-download {
+            background-color: var(--btn-bg) !important;
+            color: var(--btn-text) !important;
+            border: 1px solid var(--box-border);
+        }
+        .btn-download:hover { background-color: var(--btn-hover) !important; }
+
+        /* Enhanced Interactive Buttons */
+        .btn-interactive {
+            border: 1px solid var(--box-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-interactive:hover {
+            transform: scale(1.03); /* Slight zoom */
+            background-color: var(--box-bg) !important;
+            border-color: var(--accent-primary) !important; /* Glow border */
         }
     </style>
 </head>
-<body class="bg-background text-zinc-100 font-sans min-h-screen p-4 md:p-12 selection:bg-indigo-500/30">
+<body class="font-sans min-h-screen p-4 md:p-12 selection:bg-indigo-500/30">
+
+    <button id="theme-toggle" aria-label="Toggle Theme" class="fixed top-6 right-6 z-50 p-3 rounded-full glass-card hover:scale-110 active:scale-95 transition-all cursor-pointer">
+        </button>
 
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[120px]"></div>
@@ -89,12 +148,11 @@
     <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up">
 
         <div class="md:col-span-1 space-y-6">
-            
             <div class="glass-card rounded-3xl p-6 flex flex-col items-center text-center relative overflow-hidden">
                 <div class="w-40 h-40 rounded-full border-2 border-white/10 p-1 mb-4 relative group cursor-pointer">
                     <div class="w-full h-full rounded-full bg-zinc-800 overflow-hidden relative">
                         <img src="https://raw.githubusercontent.com/ZOTX0/ZOTX/refs/heads/main/images/ME2.jpg" 
-                             alt="Abdalrhman Saleh" 
+                             alt="Abdalrhman Saleh" loading="eager" width="160" height="160"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="absolute bottom-3 right-3 w-5 h-5 bg-green-500 rounded-full border-4 border-[#18181b] animate-pulse"></div>
@@ -102,10 +160,9 @@
 
                 <h1 class="text-2xl font-bold tracking-tight text-white">Abdalrhman Saleh</h1>
                 <p class="text-indigo-400 text-sm mt-1 font-medium">Aspiring HR Specialist</p>
-                
-                <div class="w-full h-px bg-white/5 my-4"></div>
+                <div class="w-full h-px bg-current opacity-10 my-4"></div>
 
-                <p class="text-sm text-zinc-400 leading-relaxed text-left">
+                <p class="text-sm text-zinc-300 leading-relaxed text-left">
                     Not your typical HR student. From scaling a digital business to building custom PCs, I am obsessed with optimizing systems. 
                     <br><br>
                     I bring a tech-savvy, solution-first mindset to people operations.
@@ -115,18 +172,21 @@
             <div class="glass-card rounded-3xl p-5">
                 <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 ml-1">Get in Touch</h3>
                 <div class="flex gap-3">
-                    <a href="mailto:Abdalrhman@zotx.net" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all group">
-                        <div class="p-2 bg-indigo-500/10 rounded-full text-indigo-400 group-hover:text-indigo-300">
+                    
+                    <a href="mailto:Abdalrhman@zotx.net" 
+                       class="btn-interactive flex-1 bg-white/5 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group cursor-pointer">
+                        <div class="p-2 bg-indigo-500/10 rounded-full text-indigo-400 group-hover:text-indigo-500 transition-colors">
                             <i data-lucide="mail" class="w-5 h-5"></i>
                         </div>
-                        <span class="text-xs font-medium text-zinc-300">Email Me</span>
+                        <span class="text-xs font-medium text-zinc-300 group-hover:text-indigo-400 transition-colors">Email Me</span>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/abdalrhman0" target="_blank" class="flex-1 bg-[#0077b5]/10 hover:bg-[#0077b5]/20 border border-[#0077b5]/10 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all group">
-                        <div class="p-2 bg-[#0077b5]/20 rounded-full text-[#0077b5] group-hover:text-white">
+                    <a href="https://www.linkedin.com/in/abdalrhman0" target="_blank" 
+                       class="btn-interactive flex-1 bg-white/5 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group cursor-pointer">
+                        <div class="p-2 bg-[#0077b5]/10 rounded-full text-[#0077b5] group-hover:text-[#0a66c2] transition-colors">
                             <i data-lucide="linkedin" class="w-5 h-5"></i>
                         </div>
-                        <span class="text-xs font-medium text-zinc-300">LinkedIn</span>
+                        <span class="text-xs font-medium text-zinc-300 group-hover:text-[#0077b5] transition-colors">LinkedIn</span>
                     </a>
                 </div>
             </div>
@@ -134,58 +194,33 @@
             <div class="glass-card rounded-3xl p-6">
                 <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Interpersonal & Soft Skills</h3>
                 <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="mic-2" class="w-3 h-3 text-pink-400"></i> Presentation Skills
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="users" class="w-3 h-3 text-blue-400"></i> Leadership
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="heart-handshake" class="w-3 h-3 text-green-400"></i> Empathetic Problem Solving
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="layers" class="w-3 h-3 text-orange-400"></i> Multitasking
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="languages" class="w-3 h-3 text-purple-400"></i> English Proficiency
-                    </span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="mic-2" class="w-3 h-3 text-pink-400"></i> Presentation Skills</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="users" class="w-3 h-3 text-blue-400"></i> Leadership</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="heart-handshake" class="w-3 h-3 text-green-400"></i> Empathetic Problem Solving</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="layers" class="w-3 h-3 text-orange-400"></i> Multitasking</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="languages" class="w-3 h-3 text-purple-400"></i> English Proficiency</span>
                 </div>
 
                 <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Technical & AI Toolkit</h3>
                 <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-yellow-400"></i> AI Literacy
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="monitor" class="w-3 h-3 text-indigo-400"></i> Pega System
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="file-spreadsheet" class="w-3 h-3 text-green-500"></i> MS Office Suite
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="palette" class="w-3 h-3 text-pink-400"></i> Canva
-                    </span>
-                    <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
-                        <i data-lucide="cpu" class="w-3 h-3 text-red-400"></i> Hardware Support
-                    </span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="sparkles" class="w-3 h-3 text-yellow-400"></i> AI Literacy</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="monitor" class="w-3 h-3 text-indigo-400"></i> Pega System</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="file-spreadsheet" class="w-3 h-3 text-green-500"></i> MS Office Suite</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="palette" class="w-3 h-3 text-pink-400"></i> Canva</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs text-zinc-300 flex items-center gap-2"><i data-lucide="cpu" class="w-3 h-3 text-red-400"></i> Hardware Support</span>
                 </div>
             </div>
         </div>
 
         <div class="md:col-span-2 space-y-6">
-            
             <div class="glass-card rounded-3xl p-8 min-h-full">
                 <div class="flex items-center justify-between mb-10">
                     <h2 class="text-xl font-bold flex items-center gap-3 text-white">
-                        <div class="p-2 bg-indigo-500/10 rounded-lg">
-                            <i data-lucide="briefcase" class="w-5 h-5 text-indigo-400"></i>
-                        </div>
-                        Experience Journey
+                        <div class="p-2 bg-indigo-500/10 rounded-lg"><i data-lucide="briefcase" class="w-5 h-5 text-indigo-400"></i></div> Experience Journey
                     </h2>
-                    
                     <a href="https://raw.githubusercontent.com/ZOTX0/ZOTX/main/images/Abdalrhman%20Saleh%20-%20CV%20up%20to%20date.pdf" 
                        target="_blank"
-                       class="px-4 py-2 bg-white text-black text-xs font-bold rounded-full hover:bg-zinc-200 transition-colors flex items-center gap-2">
+                       class="btn-download px-4 py-2 text-xs font-bold rounded-full transition-colors flex items-center gap-2">
                         <i data-lucide="download" class="w-3 h-3"></i> Download CV
                     </a>
                 </div>
@@ -195,120 +230,124 @@
 
                     <div class="relative pl-12 group">
                         <div class="timeline-dot absolute left-3 top-1.5 w-4 h-4 rounded-full bg-[#09090b] border-4 border-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
-                        
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                             <h3 class="font-bold text-lg text-white">HR Major Student</h3>
                             <span class="text-xs font-mono text-indigo-300 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Present</span>
                         </div>
-                        <p class="text-sm text-zinc-500 mb-3">MSA University & Greenwich University</p>
+                        <p class="text-sm text-zinc-300 mb-3 font-medium">MSA University & Greenwich University</p>
                         
                         <div class="bg-indigo-500/10 border border-indigo-500/30 rounded-xl p-4 mb-4 flex items-start gap-3">
-                            <div class="mt-0.5 animate-pulse-glow">
-                                <div class="w-2 h-2 bg-indigo-400 rounded-full"></div>
-                            </div>
+                            <div class="mt-0.5 animate-pulse-glow"><div class="w-2 h-2 bg-indigo-400 rounded-full"></div></div>
                             <div>
                                 <h4 class="text-sm font-bold text-indigo-300 leading-none mb-1">OPEN TO WORK</h4>
-                                <p class="text-xs text-indigo-200/70">Actively seeking a Summer HR Internship to apply my skills.</p>
+                                <p class="text-xs text-indigo-200/70 font-medium">Actively seeking a Summer HR Internship to apply my skills.</p>
                             </div>
                         </div>
 
-                        <p class="text-sm text-zinc-300 leading-relaxed bg-zinc-800/30 p-4 rounded-xl border border-white/5">
+                        <p class="text-sm text-zinc-300 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/5">
                             Dual Degree Program (UK & Egypt). Focused on academic excellence in Human Resources Management.
-                            <br>
-                            <span class="text-green-400 font-bold mt-2 inline-block">Last Term GPA: 3.8</span> 
+                            <br><span class="text-green-400 font-bold mt-2 inline-block">Last Term GPA: 3.8</span>
                         </p>
                     </div>
 
                     <div class="relative pl-12 group">
-                        <div class="timeline-dot absolute left-4 top-2 w-2 h-2 rounded-full bg-zinc-600 group-hover:bg-zinc-400 transition-colors"></div>
-                        
+                        <div class="timeline-dot absolute left-4 top-2 w-2 h-2 rounded-full bg-zinc-600"></div>
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                             <a href="https://www.concentrix.com/en-gb/" target="_blank" class="font-bold text-lg text-zinc-200 hover:text-white transition-colors inline-flex items-center gap-2">
-                                English Customer Service Advisor 
-                                <i data-lucide="external-link" class="w-3 h-3 text-zinc-500"></i>
+                                English Customer Service Advisor <i data-lucide="external-link" class="w-3 h-3 text-zinc-500"></i>
                             </a>
                             <span class="text-xs font-mono text-zinc-500">Jun 2025 - Sep 2025</span>
                         </div>
-                        <p class="text-sm text-zinc-500 mb-3">Concentrix (Booking.com Account)</p>
-                        <ul class="list-disc list-outside ml-4 text-sm text-zinc-400 space-y-1 leading-relaxed marker:text-zinc-600">
+                        <p class="text-sm text-zinc-300 mb-3 font-medium">Concentrix (Booking.com Account)</p>
+                        <ul class="list-disc list-outside ml-4 text-sm text-zinc-400 space-y-1 leading-relaxed marker:text-zinc-500">
                             <li><strong>System Proficiency:</strong> Administered workflow using the <strong>Pega Ticketing System</strong>.</li>
-                            <li><strong>Empathy & Results:</strong> Achieved <strong>0% Negative Feedback</strong> by validating customer emotions, and delivering clear, actionable solutions.</li>
-                            <li><strong>Adaptability:</strong> Maintained high performance during rotating shift schedules (e.g., 12 AM - 9 AM).</li>
+                            <li><strong>Empathy & Results:</strong> Achieved <strong>0% Negative Feedback</strong> by validating customer emotions.</li>
+                            <li><strong>Adaptability:</strong> Maintained high performance during rotating shift schedules.</li>
                         </ul>
                     </div>
 
                     <div class="relative pl-12 group">
-                        <div class="timeline-dot absolute left-4 top-2 w-2 h-2 rounded-full bg-zinc-600 group-hover:bg-zinc-400 transition-colors"></div>
-                        
+                        <div class="timeline-dot absolute left-4 top-2 w-2 h-2 rounded-full bg-zinc-600"></div>
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                             <a href="https://www.linkedin.com/company/msamun" target="_blank" class="font-bold text-lg text-zinc-200 hover:text-white transition-colors inline-flex items-center gap-2">
-                                Operations & PR Member
-                                <i data-lucide="external-link" class="w-3 h-3 text-zinc-500"></i>
+                                Operations & PR Member <i data-lucide="external-link" class="w-3 h-3 text-zinc-500"></i>
                             </a>
                             <span class="text-xs font-mono text-zinc-500">Oct 2024 - Mar 2025</span>
                         </div>
-                        <p class="text-sm text-zinc-500 mb-3">MSA Model United Nations</p>
-                        <ul class="list-disc list-outside ml-4 text-sm text-zinc-400 space-y-1 leading-relaxed marker:text-zinc-600">
+                        <p class="text-sm text-zinc-300 mb-3 font-medium">MSA Model United Nations</p>
+                        <ul class="list-disc list-outside ml-4 text-sm text-zinc-400 space-y-1 leading-relaxed marker:text-zinc-500">
                             <li>Orchestrated event logistics and conference sessions.</li>
                             <li>Networked with FinTech PR heads for financial sponsorships.</li>
-                            <li>Developed professional communication strategies for B2B outreach.</li>
                         </ul>
                     </div>
 
                     <div class="relative pl-12 group">
-                        <div class="timeline-dot absolute left-4 top-2 w-2 h-2 rounded-full bg-zinc-600 group-hover:bg-zinc-400 transition-colors"></div>
-                        
+                        <div class="timeline-dot absolute left-4 top-2 w-2 h-2 rounded-full bg-zinc-600"></div>
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                             <a href="https://funpay.com/en/users/7558857/" target="_blank" class="font-bold text-lg text-zinc-200 hover:text-white transition-colors inline-flex items-center gap-2">
-                                Digital Sales Entrepreneur
-                                <i data-lucide="external-link" class="w-3 h-3 text-zinc-500"></i>
+                                Digital Sales Entrepreneur <i data-lucide="external-link" class="w-3 h-3 text-zinc-500"></i>
                             </a>
-                            <span class="text-xs font-mono text-zinc-500">Aug '23 - Mar '24 & Nov '24 - May '25</span>
+                            <span class="text-xs font-mono text-zinc-500">2023 - 2025</span>
                         </div>
-                        <p class="text-sm text-zinc-500 mb-3">FunPay Platform</p>
-                       <div class="p-6 rounded-xl bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 border border-white/5">
-    <div class="grid grid-cols-3 gap-4 mb-6 border-b border-white/5 pb-4">
-        
-        <div class="text-center">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">Revenue</p>
-            <p class="text-sm md:text-base font-bold text-green-400">~1M EGP</p>
-        </div>
-
-        <div class="text-center border-x border-white/5">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">Total Sales</p>
-            <p class="text-sm md:text-base font-bold text-white">2,000+</p>
-        </div>
-
-        <div class="text-center">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">Avg Rating</p>
-            <p class="text-sm md:text-base font-bold text-yellow-400 flex items-center justify-center gap-1">
-                5.0 <i data-lucide="star" class="w-3 h-3 fill-yellow-400"></i>
-            </p>
-        </div>
-    </div>
-
-    <ul class="list-disc list-outside ml-4 text-xs md:text-sm text-zinc-300 space-y-2 leading-relaxed marker:text-zinc-500">
-        <li><strong>Dynamic Pricing:</strong> Implemented daily pricing adjustments based on competitor analysis.</li>
-        <li><strong>Customer Clarity:</strong> Designed detailed product guides that reduced support tickets.</li>
-        <li><strong>Financial Tracking:</strong> Managed high-volume revenue flow across multiple channels.</li>
-    </ul>
-</div>
+                        <p class="text-sm text-zinc-300 mb-3 font-medium">FunPay Platform</p>
+                        
+                        <div class="p-6 rounded-xl bg-white/5 border border-white/5">
+                            <div class="grid grid-cols-3 gap-4 mb-6 border-b border-white/5 pb-4">
+                                <div class="text-center">
+                                    <p class="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">Revenue</p>
+                                    <p class="text-sm md:text-base font-bold text-green-400">~1M EGP</p>
+                                </div>
+                                <div class="text-center border-x border-white/5">
+                                    <p class="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">Total Sales</p>
+                                    <p class="text-sm md:text-base font-bold text-white">2,000+</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">Avg Rating</p>
+                                    <p class="text-sm md:text-base font-bold text-yellow-400 flex items-center justify-center gap-1">5.0 <i data-lucide="star" class="w-3 h-3 fill-yellow-400"></i></p>
+                                </div>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-xs md:text-sm text-zinc-400 space-y-2 leading-relaxed marker:text-zinc-500">
+                                <li><strong>Dynamic Pricing:</strong> Implemented daily pricing adjustments.</li>
+                                <li><strong>Customer Clarity:</strong> Designed detailed product guides.</li>
+                                <li><strong>Financial Tracking:</strong> Managed high-volume revenue.</li>
+                            </ul>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </main>
 
-    <footer class="mt-12 text-center pb-8 opacity-50 hover:opacity-100 transition-opacity">
-        <p class="text-[10px] text-zinc-500 font-mono uppercase">© 2026 ZOTX </p>
-    </footer>
+    <footer class="mt-12 text-center pb-8 opacity-50"><p class="text-[10px] text-zinc-500 font-mono uppercase">© 2026 ZOTX</p></footer>
 
     <script>
         lucide.createIcons();
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Initialize
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+            renderIcon(true);
+        } else {
+            renderIcon(false);
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            renderIcon(isLight);
+        });
+
+        function renderIcon(isLight) {
+            if (isLight) {
+                toggleBtn.innerHTML = '<i data-lucide="moon" class="w-5 h-5 text-indigo-600"></i>';
+            } else {
+                toggleBtn.innerHTML = '<i data-lucide="sun" class="w-5 h-5 text-yellow-400"></i>';
+            }
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
-
-
