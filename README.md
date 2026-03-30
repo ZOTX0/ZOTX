@@ -23,7 +23,7 @@ This website is a direct reflection of how I work.
 
 ## The Stack
 * **Codebase:** Pure HTML5 & Tailwind CSS
-* **The "Developer":** Google Gemini (AI)
+* **The Developer:** Google Gemini 
 * **The Architect:** Abdalrhman Saleh (ME) (Testing, QA, and Prompting)
 * **Hosting:** GitHub Pages & Custom Domain
 
