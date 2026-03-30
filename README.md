@@ -1,7 +1,7 @@
 # 🚀 Abdalrhman Saleh | Personal Portfolio
 
 [![Website Live](https://img.shields.io/badge/Live_Website-zotx.net-blue?style=for-the-badge)](https://zotx.net)
-[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%2F100-success?style=for-the-badge)](#)
+[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-99%2F100-success?style=for-the-badge)](#)
 
 Welcome to the source code of my personal website!
 
